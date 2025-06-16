@@ -6,11 +6,12 @@ body{
 
 .head{
     display: flex;
-    background: rgb(0, 255, 0);
+    background: rgb(70, 70, 70);
 }
 
 #title{
  min-width: fit-content;
+ padding: .5rem 1rem ;
 }
 
 footer *{
@@ -19,7 +20,7 @@ footer *{
 }
 
   h1, h2 {
-    color: #222;
+    color: #b6b6b6;
     margin-bottom: 0.5em;
     text-align: center;
   }
@@ -37,7 +38,9 @@ footer *{
 
 
   a{
-      text-decoration: 0;
+      text-decoration: none;
+      min-width: fit-content;
+
   }
   
   img{
@@ -55,7 +58,7 @@ footer *{
     bottom: 0;
     left: 100%;
     width: 100%;
-    background: rgb(0, 255, 0);
+    background: rgb(70, 70, 70);
     transform: translateX(0);
     transition: transform 250ms ease;
     z-index: 1000; 
@@ -79,7 +82,7 @@ footer *{
 
 
 .nav-link {
-    color: #000000;
+    color: #ccc;
     text-decoration: none;
     font-size: 3rem;
     font-weight: 700;
@@ -193,11 +196,11 @@ interesser
     gap: 1.5rem;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     margin-top: 1em;
-    padding: 1em 0;
+    padding: 1em 1rem;
 }
 
 .interesse {
-    background: #e6ffe6;
+    background: #84848466;
     padding: 1em;
     border-radius: 10px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
@@ -221,11 +224,17 @@ interesser
 
 article {
   background-color: #84848466;
+  display: flex;
+  flex-direction: column;
   padding: 1.5em;
   margin: 1em 0;
   border-radius: 12px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
   transition: transform 0.2s ease;
+  max-width: 60%;
+  justify-content: center;
+  margin: 2rem auto;
+
 }
 
 article:hover {
@@ -439,7 +448,7 @@ article:hover {
   }
   
   .footer a:hover {
-    color: #1aff00;
+    color: #800101;
   }
   
   .footer i {
