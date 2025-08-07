@@ -6,7 +6,7 @@ body{
 
 .head{
   display: flex;
-  background: rgb(70, 70, 70);
+  background: #1b64ae;
 }
 
 #title{
@@ -17,6 +17,8 @@ padding: .5rem 1rem ;
 footer *{
   display: flex;
   justify-content: space-around;
+  max-width: 100%;
+  flex-wrap: wrap;
 }
 
 h1, h2 {
@@ -58,7 +60,7 @@ img{
   bottom: 0;
   left: 100%;
   width: 100%;
-  background: rgb(70, 70, 70);
+  background: #1b64ae;
   transform: translateX(0);
   transition: transform 250ms ease;
   z-index: 1000; 
@@ -240,25 +242,159 @@ margin: 2rem auto;
 article:hover {
 transform: translateY(-4px);
 }
+/* =============
+   certificate 
+   =============*/
 
-.Certificate{
+.certificate-carousel {
+  position: relative;
+  width: 90%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 0;
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
-.Cert-img{
-margin: 2em;
+
+.carousel-track {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
 }
 
-@media (min-width: 935px){
-.Certificate{
-  flex-direction: row;
-  justify-content: space-around;
+
+.cert-img {
+  flex: 0 0 auto;
+  margin: 0 10px;
+  opacity: 0;
+  transform: scale(0.85);
+  transition: opacity 0.5s ease, transform 0.5s ease, filter 0.5s ease;
+  display: none;
+  filter: blur(2px);
+  max-width: 100%;
+  scroll-snap-align: center;
+}
+
+
+.cert-img.prev,
+.cert-img.next {
+  display: block;
+  opacity: 0.4;
+  transform: scale(0.85);
+  filter: blur(1px);
+}
+
+
+.cert-img.active {
+  display: block;
+  opacity: 1;
+  transform: scale(1);
+  filter: none;
+  z-index: 2;
+}
+
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(176, 176, 176, 0.771);
+  color: #fff;
+  border: none;
+  font-size: 2rem;
+  padding: 0.3rem 0.6rem;
+  cursor: pointer;  
+  z-index: 2;
+}
+
+.carousel-btn:hover {
+  background-color: rgba(0, 0, 0, 0.61);
+}
+
+.carousel-btn.prev {
+  left: 0;
+}
+
+.carousel-btn.next {
+  right: 0;
+}
+
+.carousel-inner {
+  position: relative;
+  padding: 0 2rem;
+  min-width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   
 }
 
 
+/* Dot-indikatorer */
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  gap: 8px;
+}
+
+.carousel-dot {
+  width: 12px;
+  height: 12px;
+  background-color: #006eff;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.carousel-dot.active {
+  background-color: #00203d;
+}
+
+/* Mobilvennlig justering */
+@media (max-width: 600px) {
+  .carousel-btn {
+    font-size: 1.5rem;
+    padding: 0.3rem 0.6rem;
+  }
+
+  .carousel-btn.prev {
+    left: -0.5rem;
+  }
+
+  .carousel-btn.next {
+    right: -0.5rem;
+  }
+
+  .cert-img.prev,
+  .cert-img.next {
+    transform: scale(0.8);
+  }
+}
+
+@media (max-width: 800px) {
+  .cert-img.prev,
+  .cert-img.next {
+    display: none;
+  }
+
+  .cert-img.active {
+    max-width: 100%;
+    transform: scale(1);
+    filter: none;
+    opacity: 1;
+    display: block;
+  }
+
+  .carousel-track {
+    overflow: hidden;
+  }
 }
 
 
@@ -285,6 +421,13 @@ margin: 2em;
 body.dark-mode {
   background-color: #111;
   color: #eee;
+}
+
+body.dark-mode header,
+body.dark-mode footer,
+body.dark-mode .nav {
+  background-color: #1a2b4c; 
+  color: #fff;
 }
 
 
@@ -399,26 +542,16 @@ body.dark-mode .interesse {
   }
 }
 
-/*=========
- Cert-img
- ========== */
-
-.cert-img{
-  transition: trasnform 500ms;
-}
-
-.cert-img:hover,
-.cert-img:focus{
-  transform: scale(2);
-  position:absolute;
-}
-
+/* ==========
+    Footer 
+   ==========*/
 
 .footer {
-  background-color: #000000;
+  background-color: #003366;
   color: #ffffff;
   padding: 1.5rem 1rem;
   margin-top: 2rem;
+  
 }
 
 .footer ul {
@@ -454,6 +587,8 @@ body.dark-mode .interesse {
 .footer i {
   font-size: 1.2rem;
 }
+
+
 
 
 
